@@ -1,13 +1,14 @@
-# pragma pylint: disableBBmissing-docstring, invalid-name, pointless-string-statement
-
-import talib.abstract as ta
+# pragma pylint: disable=missing-docstring, invalid-name, pointless-string-statement
+import pandas
 from pandas import DataFrame
+import talib.abstract as ta
 
 import freqtrade.vendor.qtpylib.indicators as qtpylib
+#from freqtrade.indicator_helpers import fishers_inverse
 from freqtrade.strategy.interface import IStrategy
+#pandas.set_option("display.precision",8)
 
-
-class RSIBB(IStrategy):
+class RSIBB02(IStrategy):
     """
     Default Strategy provided by freqtrade bot.
     You can override it with your own strategy
@@ -15,17 +16,17 @@ class RSIBB(IStrategy):
 
     # Minimal ROI designed for the strategy
     minimal_roi = {
+    "0": 0.24140975952086036,
+    "13": 0.049595065708988986,
+    "51": 0.01046521346331895,
+    "135": 0
     }
 
     # Optimal stoploss designed for the strategy
-    """ Iniciaremos com stop loss infinito porque
-    ainda precisamos encontrar um stop adequado
-    e para isso precisamos executar testes
-    -0.99 = stop loss infinit0""" 
-    stoploss = -0.99
+    stoploss = -0.12515406445006344
 
     # Optimal ticker interval for the strategy
-    ticker_interval = '1h'
+    ticker_interval = '5m'
 
     # Optional order type mapping
     order_types = {
@@ -62,7 +63,7 @@ class RSIBB(IStrategy):
         # ------------------------------------
 
         # Bollinger bands
-        bollinger = qtpylib.bollinger_bands(qtpylib.typical_price(dataframe), window=20, stds=2)
+        bollinger = qtpylib.bollinger_bands(qtpylib.typical_price(dataframe), window=20, stds=4)
         dataframe['bb_lowerband'] = bollinger['lower']
         dataframe['bb_middleband'] = bollinger['mid']
         dataframe['bb_upperband'] = bollinger['upper']
@@ -76,16 +77,11 @@ class RSIBB(IStrategy):
         :param dataframe: DataFrame
         :param metadata: Additional information, like the currently traded pair
         :return: DataFrame with buy column
-
-        Lógica do RSI: não queremos comprar um ativo sobrevendido (RSI < 30), pois, 
-        indica que ninguem quer e pode ficar a este nivel de preço baixo por muito tempo
-        Lógica da BB: o preço tende a voltar para a média, então, se for < que a banda inferior,
-        acreditamos que vai subir, em direção à média.  
         """
         dataframe.loc[
             (
 
-                (dataframe['rsi'] > 30) &
+                (dataframe['rsi'] > 19) &
                 (dataframe["close"] < dataframe['bb_lowerband'] )
             ),
             'buy'] = 1
@@ -97,15 +93,11 @@ class RSIBB(IStrategy):
         :param dataframe: DataFrame
         :param metadata: Additional information, like the currently traded pair
         :return: DataFrame with buy column
-
-        Lógica do RSI: não queremos comprar um ativo sobrecomprado (RSI < 83), pois, 
-        indica que está muito caro, pode não subir mais. Cair é mais provável
-        Lógica da BB: o preço tende a voltar para a média, então, se for > que a banda superior,
-        acreditamos que vai cair, em direção à média.  
         """
 
         dataframe.loc[
             (
+                (dataframe['rsi'] > 83) &
                 (dataframe["close"] > dataframe['bb_middleband'] )
             ),
             'sell'] = 1
