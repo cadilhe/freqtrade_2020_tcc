@@ -25,7 +25,7 @@ class DefaultStrategy(IStrategy):
         "0": 0.04
     }
 
-    # Optimal stoploss designed for the strategy
+    # Optimal stoploss designed for the stfile:///home/nimb/freqtrade_2019_tcc/freqtrade/user_data/plot/freqtrade-plot-ETH_BTC-1h.htmlrategy
     stoploss = -0.10
 
     # Optimal ticker interval for the strategy
