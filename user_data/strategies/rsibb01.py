@@ -1,12 +1,19 @@
 # pragma pylint: disableBBmissing-docstring, invalid-name, pointless-string-statement
-import pandas
-from pandas import DataFrame
-import talib.abstract as ta
 
-import freqtrade.vendor.qtpylib.indicators as qtpylib
+# --- Do not remove these libs ---
+import numpy as np # noqa
+import pandas as pd # noqa
+from pandas import DataFrame
+
 from freqtrade.strategy.interface import IStrategy
 
+# --------------------------
+# Add your lib to import here
+import talib.abstract as ta
+import freqtrade.vendor.qtpylib.indicators as qtpylib
 
+
+# This is the class of the strategy
 class RSIBB01(IStrategy):
     """
     Default Strategy provided by freqtrade bot.
@@ -25,7 +32,7 @@ class RSIBB01(IStrategy):
     stoploss = -0.99
 
     # Optimal ticker interval for the strategy
-    ticker_interval = '5m'
+    ticker_interval = '1h'
 
     # Optional order type mapping
     order_types = {

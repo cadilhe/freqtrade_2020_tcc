@@ -1,12 +1,17 @@
-# pragma pylint: disable=missing-docstring, invalid-name, pointless-string-statement
-import pandas
-from pandas import DataFrame
-import talib.abstract as ta
+# pragma pylint: disableBBmissing-docstring, invalid-name, pointless-string-statement
 
+# --- Do not remove these libs ---
+import numpy as np # noqa
+import pandas as pd # noqa
+from pandas import DataFrame
+
+from freqtrade.strategy.interface import IStrategy
+
+# --------------------------
+# Add your lib to import here
+import talib.abstract as ta
 import freqtrade.vendor.qtpylib.indicators as qtpylib
 #from freqtrade.indicator_helpers import fishers_inverse
-from freqtrade.strategy.interface import IStrategy
-#pandas.set_option("display.precision",8)
 
 class RSIBB02(IStrategy):
     """
@@ -24,9 +29,6 @@ class RSIBB02(IStrategy):
 
     # Optimal stoploss designed for the strategy
     stoploss = -0.12515406445006344
-
-    # Optimal ticker interval for the strategy
-    ticker_interval = '5m'
 
     # Optional order type mapping
     order_types = {
@@ -80,7 +82,6 @@ class RSIBB02(IStrategy):
         """
         dataframe.loc[
             (
-
                 (dataframe['rsi'] > 19) &
                 (dataframe["close"] < dataframe['bb_lowerband'] )
             ),

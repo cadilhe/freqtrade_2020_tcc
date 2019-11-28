@@ -1,0 +1,96 @@
+{
+    "max_open_trades": 15,
+    "stake_currency": "BTC",
+    "stake_amount": 0.01,
+    "fiat_display_currency": "USD",
+    "ticker_interval" : "1h",
+    "dry_run": true,
+    "trailing_stop": false,
+    "unfilledtimeout": {
+        "buy": 10,
+        "sell": 30
+    },
+    "bid_strategy": {
+        "use_order_book": false,
+        "ask_last_balance": 0.0,
+        "order_book_top": 1,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 1
+        }
+    },
+    "ask_strategy":{
+        "use_order_book": false,
+        "order_book_min": 1,
+        "order_book_max": 9,
+        "use_sell_signal": true,
+        "sell_profit_only": false,
+        "ignore_roi_if_buy_signal": false
+    },
+    "exchange": {
+        "name": "binance",
+        "key": "fipA5Po8Yw31Hxnh9c74UNYc3wd0ogI1V2e2guIuvmrD8MkCNQF2jJLmTzEJzpWV",
+        "secret": "B9jzsDUOlIM3tJ1ZTVgvdWA5Uo4eDXoCLWonsb0puXMhcSTE0yR6UT66voSupIcf",
+        "ccxt_config": {"enableRateLimit": true},
+        "ccxt_async_config": {
+            "enableRateLimit": true,
+            "rateLimit": 200
+        },
+        "pair_whitelist": [
+            "ETH/BTC",
+            "LTC/BTC",
+            "ETC/BTC",
+            "DASH/BTC",
+            "XLM/BTC"   
+            
+    /* "ETH/BTC",
+    "LTC/BTC",
+    "ETC/BTC",
+    "DASH/BTC",
+    "ZEC/BTC",
+    "XLM/BTC",
+    "ADA/BTC",
+    "XMR/BTC",            
+    "KMD/BTC",
+    "TRX/BTC",
+    "XRP/BTC",
+    "EOS/BTC",
+    "XVG/BTC",
+    "NEO/BTC",
+    "ONT/BTC",
+    "XEM/BTC",
+    "VET/BTC" */
+        ],
+        "pair_blacklist": [
+            "BNB/BTC"
+        ]
+    },
+    "pairlists": [
+        {"method": "StaticPairList"}
+    ],
+    "edge": {
+        "enabled": false,
+        "process_throttle_secs": 3600,
+        "calculate_since_number_of_days": 7,
+        "capital_available_percentage": 0.5,
+        "allowed_risk": 0.01,
+        "stoploss_range_min": -0.01,
+        "stoploss_range_max": -0.1,
+        "stoploss_range_step": -0.01,
+        "minimum_winrate": 0.60,
+        "minimum_expectancy": 0.20,
+        "min_trade_number": 10,
+        "max_trade_duration_minute": 1440,
+        "remove_pumps": false
+    },
+    "telegram": {
+        "enabled": false,
+        "token": "1045845044:AAE7fwoGuRPWoW-GH5FSF0sxDoE-sCMvRG0",
+        "chat_id": "673816716"
+    },
+    "initial_state": "running",
+    "forcebuy_enable": false,
+    "internals": {
+        "process_throttle_secs": 5
+    }
+}
