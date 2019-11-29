@@ -3,7 +3,6 @@
     "stake_currency": "BTC",
     "stake_amount": 0.01,
     "fiat_display_currency": "USD",
-    "ticker_interval" : "1h",
     "dry_run": true,
     "trailing_stop": false,
     "unfilledtimeout": {
@@ -43,17 +42,23 @@
             "DASH/BTC",
             "ZEC/BTC",
             "XLM/BTC",
+            "POWR/BTC",
             "ADA/BTC",
             "XMR/BTC",            
+            "BNB/BTC",
+            "QLC/BTC",
             "KMD/BTC",
+            "WTC/BTC",
             "TRX/BTC",
             "XRP/BTC",
             "EOS/BTC",
             "XVG/BTC",
             "NEO/BTC",
+            "LINK/BTC",
             "ONT/BTC",
             "XEM/BTC",
-            "VET/BTC"
+            "VET/BTC",
+            "ICX/BTC"
         ],
         "pair_blacklist": [
             "BNB/BTC"
