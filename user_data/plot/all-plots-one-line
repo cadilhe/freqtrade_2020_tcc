@@ -1,0 +1,32 @@
+https://www.freqtrade.io/en/latest/backtesting/
+
+Todas plotagens pelo terminal:
+
+# freqtrade plot-dataframe --strategy Strategy001 --datadir user_data/data/binance -p BTC/ETH LTC/BTC DASH/BTC ZEC/BTC POWR/BTC ADA/BTC XMR/BTC BNB/BTC QLC/BTC KMD/BTC WTC/BTC TRX/BTC XRP/BTC EOS/BTC XVG/BTC NEO/BTC  ONT/BTC XEM/BTC ICX/BTC
+
+
+
+
+"ADA/BTC",
+"BNB/BTC",
+"DASH/BTC",
+"EOS/BTC",
+"ETC/BTC",
+"ETH/BTC",
+"ICX/BTC"
+"KMD/BTC",
+"LINK/BTC",
+"LTC/BTC",
+"NEO/BTC",
+"ONT/BTC",
+"POWR/BTC",
+"QLC/BTC",
+"TRX/BTC",
+"VET/BTC",
+"WTC/BTC",
+"XEM/BTC",
+"XLM/BTC",
+"XMR/BTC",
+"XRP/BTC",
+"XVG/BTC",
+"ZEC/BTC",

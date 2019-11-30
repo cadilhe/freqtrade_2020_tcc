@@ -1,0 +1,27 @@
+https://www.freqtrade.io/en/latest/backtesting/
+
+
+
+-p ETH/BTC",
+-p LTC/BTC",
+-p ETC/BTC",
+-p DASH/BTC",
+-p ZEC/BTC",
+-p XLM/BTC",
+-p POWR/BTC",
+-p ADA/BTC",
+-p XMR/BTC",            
+-p BNB/BTC",
+-p QLC/BTC",
+-p KMD/BTC",
+-p WTC/BTC",
+-p TRX/BTC",
+-p XRP/BTC",
+-p EOS/BTC",
+-p XVG/BTC",
+-p NEO/BTC",
+-p LINK/BTC",
+-p ONT/BTC",
+-p XEM/BTC",
+-p VET/BTC",
+-p ICX/BTC"
