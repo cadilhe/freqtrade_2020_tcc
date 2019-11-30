@@ -51,13 +51,7 @@ class RSIBB01(IStrategy):
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         """
         Adds several different TA indicators to the given DataFrame
-
-        Performance Note: For the best performance be frugal on the number of indicators
-        you are using. Let uncomment only the indicator you are using in your strategies
-        or your hyperopt configuration, otherwise you will waste your memory and CPU usage.
-        :param dataframe: Raw data from the exchange and parsed by parse_ticker_dataframe()
-        :param metadata: Additional information, like the currently traded pair
-        :return: a Dataframe with all mandatory indicators for the strategies
+      
         """
 
         # Momentum Indicator
@@ -79,11 +73,6 @@ class RSIBB01(IStrategy):
 
     def populate_buy_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         """
-        Based on TA indicators, populates the buy signal for the given dataframe
-        :param dataframe: DataFrame
-        :param metadata: Additional information, like the currently traded pair
-        :return: DataFrame with buy column
-
         Lógica do RSI: não queremos comprar um ativo sobrevendido (RSI < 30), pois, 
         indica que ninguem quer e pode ficar a este nivel de preço baixo por muito tempo
         Lógica da BB: o preço tende a voltar para a média, então, se for < que a banda inferior,
@@ -100,11 +89,6 @@ class RSIBB01(IStrategy):
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         """
-        Based on TA indicators, populates the sell signal for the given dataframe
-        :param dataframe: DataFrame
-        :param metadata: Additional information, like the currently traded pair
-        :return: DataFrame with buy column
-
         Lógica do RSI: não queremos comprar um ativo sobrecomprado (RSI < 83), pois, 
         indica que está muito caro, pode não subir mais. Cair é mais provável
         Lógica da BB: o preço tende a voltar para a média, então, se for > que a banda superior,
